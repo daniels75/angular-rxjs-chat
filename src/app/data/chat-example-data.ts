@@ -38,6 +38,7 @@ const initialMessages: Array<Message> = [
     text: `I\'ll echo whatever you send me`,
     thread: tEcho
   }),
+
   new Message({
     author: rev,
     sentAt: moment().subtract(3, 'minutes').toDate(),
@@ -72,6 +73,14 @@ export class ChatExampleData {
   }
 
   static setupBots(messagesService: MessagesService): void {
+
+    // here we have 3 subscription to messageService messages
+    // 1st subscription - first filter - messagesService.messagesForThreadUser(tEcho, echo)
+    // 2nd subscription - second filter messagesService.messagesForThreadUser(tRev, rev)
+    // 3rd subscription - third filter - messagesService.messagesForThreadUser(tWait, wait)
+    // there is also 4rd subscriber -> Subject to messages, but not here
+
+    // this.newMessages -> filter (Observable) -> forEach
 
     // echo bot
     messagesService.messagesForThreadUser(tEcho, echo)

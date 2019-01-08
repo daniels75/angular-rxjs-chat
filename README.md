@@ -28,6 +28,10 @@ git clone https://github.com/ng-book/angular2-rxjs-chat.git
 # change into the repo directory
 cd angular2-rxjs-chat
 
+• 3 top-level Angular Components
+• 3 models
+• and 3 services
+
 # install
 npm install
 
