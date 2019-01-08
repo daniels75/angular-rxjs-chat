@@ -99,13 +99,16 @@ export class ChatExampleData {
     // reverse bot
     messagesService.messagesForThreadUser(tRev, rev)
       .forEach( (message: Message): void => {
-        messagesService.addMessage(
-          new Message({
+        let msg:Message = new Message({
             author: rev,
             text: message.text.split('').reverse().join(''),
             thread: tRev
-          })
-        );
+          });
+
+        console.log(`Message from: ${msg.author.name} | Message: ${msg.text} `);
+
+        messagesService.addMessage(msg);
+
       },
                 null);
 
