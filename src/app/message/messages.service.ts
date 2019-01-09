@@ -92,7 +92,7 @@ export class MessagesService {
   }
 
   messagesForThreadUser(thread: Thread, user: User): Observable<Message> {
-    // here we will subscribe 3 filter to newMessages
+    // here we will subscribe 3 filters (observers) to newMessages
     return this.newMessages
       .filter((message: Message) => {
                // belongs to this thread
