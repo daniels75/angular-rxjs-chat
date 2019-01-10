@@ -28,6 +28,14 @@ export class MessagesService {
   markThreadAsRead: Subject<any> = new Subject<any>();
 
   constructor() {
+    let arrmsg: Message[] = [];
+    let msg: Message = new Message();
+    let obs1: String[] = [];
+    let obs2: String[] = [];
+    let num:number;
+/*    this.messages = this.updates.scan((messages1: Message[], obs1, num )=> {
+        return messages1;
+      });*/
     this.messages = this.updates
       // watch the updates and accumulate operations on the messages
       .scan((messages: Message[],
@@ -65,6 +73,10 @@ export class MessagesService {
 
     this.newMessages
       .subscribe(this.create);
+
+    this.create.subscribe( {
+      next: value => console.log(`value from create: ${value}`)
+    });
 
     // similarly, `markThreadAsRead` takes a Thread and then puts an operation
     // on the `updates` stream to mark the Messages as read
