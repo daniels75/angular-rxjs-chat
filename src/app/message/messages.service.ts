@@ -4,6 +4,8 @@ import { User } from '../user/user.model';
 import { Thread } from '../thread/thread.model';
 import { Message } from '../message/message.model';
 
+import {publish} from "rxjs/operators";
+
 const initialMessages: Message[] = [];
 
 interface IMessagesOperation extends Function {
@@ -48,6 +50,8 @@ export class MessagesService {
       // messages
       .publishReplay(1)
       .refCount();
+
+    this.messages.publish();
 
     // `create` takes a Message and then puts an operation (the inner function)
     // on the `updates` stream to add the Message to the list of messages.

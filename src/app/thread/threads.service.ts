@@ -24,6 +24,19 @@ export class ThreadsService {
 
   constructor(public messagesService: MessagesService) {
 
+    /*
+
+    add new messages
+
+    chat-window.component.sendMessage
+      -> messages.service.addMessage
+        -> messages.service.updates	-> messages.service.scan
+          -> messages.service.create
+            -> messages.service.addMessage
+              -> ThreadsService.`messagesService.messages
+
+
+     */
     this.threads = messagesService.messages
       .map( (messages: Message[]) => {
         const threads: {[key: string]: Thread} = {};
