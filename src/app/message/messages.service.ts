@@ -47,6 +47,9 @@ export class MessagesService {
                return operation(messages);
              },
             initialMessages)
+      // shorter then above
+      //  .scan((messages: Message[], operation: IMessagesOperation) =>   operation(messages), initialMessages)
+
       // make sure we can share the most recent list of messages across anyone
       // who's interested in subscribing and cache the last known list of
       // messages
