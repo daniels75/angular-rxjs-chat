@@ -38,6 +38,8 @@ export class MessagesService {
 /*    this.messages = this.updates.scan((messages1: Message[], obs1, num )=> {
         return messages1;
       });*/
+
+    // 3rd update retrieves values from create
     this.messages = this.updates
       // watch the updates and accumulate operations on the messages
       .scan((messages: Message[],
