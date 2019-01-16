@@ -73,8 +73,10 @@ export class MessagesService {
           return messages.concat(message);
         };
       })
+      // 2nd update subscribes then aggragate use a function from create
       .subscribe(this.updates);
 
+    // 1st subscribe
     this.newMessages
       .subscribe(this.create);
 

@@ -28,12 +28,14 @@ export class ThreadsService {
 
     add new messages
 
-    chat-window.component.sendMessage
-      -> messages.service.addMessage
-        -> messages.service.updates	-> messages.service.scan
-          -> messages.service.create
-            -> messages.service.addMessage
-              -> ThreadsService.`messagesService.messages
+onEnter(event: any): void
+	this.sendMessage();
+		chat-window.component.sendMessage
+			-> messages.service.addMessage -> this.newMessages.next(message); l.107
+				->> messages.service.updates	->> messages.service.scan -> return operation l.45
+					-> messages.service.create -> message.concat l.73
+										   -> messages.service.addMessage l.107
+												-> threads.service.messagesService.messages l.42
 
 
      */
