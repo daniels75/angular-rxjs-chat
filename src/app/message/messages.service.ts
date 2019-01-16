@@ -81,13 +81,15 @@ export class MessagesService {
       // 2nd update subscribes then aggragate use a function from create
       .subscribe(this.updates);
 
+    this.newMessages.subscribe( {
+      next: value => console.log(`new added value: ${value}`)
+    });
+
     // 1st subscribe
     this.newMessages
       .subscribe(this.create);
 
-    this.create.subscribe( {
-      next: value => console.log(`value from create: ${value}`)
-    });
+
 
     // similarly, `markThreadAsRead` takes a Thread and then puts an operation
     // on the `updates` stream to mark the Messages as read
